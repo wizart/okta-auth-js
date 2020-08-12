@@ -150,7 +150,7 @@ exports.config = {
     services: [
       ['sauce', {
         sauceConnect: true,
-        sauceConnectOpts: { noAutodetect: false }
+        sauceConnectOpts: { noAutodetect: true }
       }],
     ],
     // Framework you want to run your specs with.
