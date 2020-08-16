@@ -632,12 +632,6 @@ function prepareTokenParams(sdk: OktaAuth, options: TokenParams): Promise<TokenP
   tokenParams.responseType = 'code';
 
   return getWellKnown(sdk, null)
-    .then(function(res) {
-      var methods = res['code_challenge_methods_supported'] || [];
-      if (methods.indexOf(tokenParams.codeChallengeMethod) === -1) {
-        throw new AuthSdkError('Invalid code_challenge_method');
-      }
-    })
     .then(function() {
       // PKCE authorization_code flow
       var codeVerifier = PKCE.generateVerifier(tokenParams.codeVerifier);
